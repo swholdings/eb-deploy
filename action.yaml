@@ -17,8 +17,5 @@ runs:
     shell: bash
   - name: Echo if not sportwig
     if: ${{ github.repository != 'swholdings/sportwig' }}
-    run: |
-      echo AWS_ACCESS_KEY_ID: ${{ env.AWS_ACCESS_KEY_ID }}
-      echo AWS_SECRET_ACCESS_KEY: ${{ env.AWS_SECRET_ACCESS_KEY }}
-      echo AWS_DEFAULT_REGION: ${{ env.AWS_DEFAULT_REGION }}
+    run: echo "Not Sportwig"
     shell: bash
