@@ -27,4 +27,5 @@ json_output=$(aws elasticbeanstalk describe-environment-resources --environment-
 instance=$(echo "$json_output" | jq -r '.EnvironmentResources.Instances[0].Id')
 
 echo "instance " $instance
-chmod 0400 ~/.ssh/$appname-$environment.pem
+# chmod 0400 ~/.ssh/$appname-$environment.pem
+eb deploy
