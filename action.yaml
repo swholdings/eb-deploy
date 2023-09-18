@@ -1,13 +1,24 @@
 inputs:
-  python-version:
+  appname:
+    required: true
+  region:
+    required: true
+  awsprofile:
+    required: true
+  cfgtemplate:
+    required: true
+  environment:
     required: true
 
 runs:
   using: "composite"
   steps:
-  - uses: actions/checkout@v4
-    name: Checkout
   - name: Echo if not sportwig
-    if: ${{ github.repository != 'swholdings/sportwig' }}
-    run: echo "Not Sportwig"
+    run: |
+      chmod +x script/deploy.sh
+      ./script/deploy.sh \
+      --appname ${{ inputs.appname }} \
+      --region ${{ inputs.region }} \
+      --cfgtemplate ${{ inputs.cfgtemplate }} \
+      --environment ${{ inputs.environment }}
     shell: bash
