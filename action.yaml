@@ -4,9 +4,7 @@ inputs:
   region:
     required: true
   awsprofile:
-    required: true
   cfgtemplate:
-    required: true
   environment:
     required: true
 
