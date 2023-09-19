@@ -4,7 +4,9 @@ inputs:
   region:
     required: true
   awsprofile:
+    description: AWS profile to use for call - Not used
   cfgtemplate:
+    description: AWS ElasticBean template - Not used
   environment:
     required: true
 
