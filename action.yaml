@@ -3,19 +3,19 @@ inputs:
     required: true
   region:
     required: true
+  environment:
+    required: true
   awsprofile:
     description: AWS profile to use for call - Not used
   cfgtemplate:
     description: AWS ElasticBean template - Not used
-  environment:
-    required: true
 
 runs:
   using: "composite"
   steps:
   - name: Install AWS CLI
     uses: unfor19/install-aws-cli-action@v1
-  - name: Echo if not sportwig
+  - name: Deploy application
     run: |
       chmod +x script/deploy.sh
       ./script/deploy.sh \
