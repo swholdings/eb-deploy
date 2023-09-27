@@ -15,9 +15,13 @@ runs:
   steps:
   - name: Install AWS CLI
     uses: unfor19/install-aws-cli-action@v1
+  - name: Checkout
+    uses: actions/checkout@v4
+  - name: Make script executable
+    run: chmod +x script/deploy.sh
+    shell: bash
   - name: Deploy application
     run: |
-      chmod +x script/deploy.sh
       ./script/deploy.sh \
       --appname ${{ inputs.appname }} \
       --region ${{ inputs.region }} \
