@@ -26,5 +26,9 @@ eb use $appname-$environment
 json_output=$(aws elasticbeanstalk describe-environment-resources --environment-name $appname-$environment --region $region)
 instance=$(echo "$json_output" | jq -r '.EnvironmentResources.Instances[0].Id')
 
-if [ ! -z "$instance" ]; then
+if [ ! -z "$instance" ];
+then
     eb deploy
+else
+    echo "Deploy not needed"
+fi
